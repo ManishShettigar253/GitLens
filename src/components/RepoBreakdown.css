@@ -1,0 +1,110 @@
+.repo-breakdown-panel {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: rgba(15, 23, 42, 0.4);
+  height: 100%;
+}
+
+.repo-breakdown-panel.empty {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--text-dim);
+}
+
+.panel-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.panel-header h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.panel-header .subtitle {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.repos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.repo-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.repo-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.repo-name-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  max-width: 75%;
+}
+
+.repo-icon {
+  color: var(--accent-indigo);
+  flex-shrink: 0;
+}
+
+.repo-name {
+  color: var(--text-main);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.repo-owner {
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+.repo-count {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.repo-count strong {
+  color: var(--text-main);
+}
+
+.progress-container {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.repo-percentage {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-align: right;
+}
+
+.empty-text {
+  font-size: 0.9rem;
+}
