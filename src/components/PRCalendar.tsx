@@ -77,7 +77,7 @@ export const PRCalendar: React.FC<PRCalendarProps> = ({ prs, startDate, endDate 
   return (
     <div className="calendar-panel glass-panel animate-fade-in">
       <div className="calendar-header">
-        <h4>PR Contribution Calendar</h4>
+        <h4>Contribution Calendar</h4>
         <div className="calendar-legend">
           <span>Less</span>
           <span className="legend-box level-0"></span>
@@ -135,7 +135,9 @@ export const PRCalendar: React.FC<PRCalendarProps> = ({ prs, startDate, endDate 
                           className={`calendar-cell ${getColorClass(prCount)} ${isOutOfRange ? 'out-of-range' : ''}`}
                           onMouseEnter={() => setHoveredDay({ date: dateStr, count: prCount })}
                           onMouseLeave={() => setHoveredDay(null)}
-                        />
+                        >
+                          <title>{`${prCount} contribution${prCount !== 1 ? 's' : ''} on ${new Date(dateStr).toLocaleDateString(undefined, { dateStyle: 'medium' })}`}</title>
+                        </rect>
                       );
                     })}
                   </g>
@@ -146,11 +148,15 @@ export const PRCalendar: React.FC<PRCalendarProps> = ({ prs, startDate, endDate 
         </div>
       </div>
 
-      {hoveredDay && (
-        <div className="calendar-tooltip animate-fade-in">
-          <strong>{hoveredDay.count} PR{hoveredDay.count !== 1 ? 's' : ''}</strong> on {new Date(hoveredDay.date).toLocaleDateString(undefined, { dateStyle: 'medium' })}
-        </div>
-      )}
+      <div className="calendar-tooltip-bar">
+        {hoveredDay ? (
+          <div className="calendar-tooltip">
+            <strong>{hoveredDay.count} contribution{hoveredDay.count !== 1 ? 's' : ''}</strong> on {new Date(hoveredDay.date).toLocaleDateString(undefined, { dateStyle: 'medium' })}
+          </div>
+        ) : (
+          <span className="tooltip-placeholder">Hover over a grid cell to view daily contributions</span>
+        )}
+      </div>
     </div>
   );
 };

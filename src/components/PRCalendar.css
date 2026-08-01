@@ -97,14 +97,14 @@
 .calendar-cell {
   stroke: rgba(0, 0, 0, 0.4);
   stroke-width: 1px;
-  transition: transform 0.1s ease;
+  transition: stroke 0.15s ease, opacity 0.15s ease;
   cursor: pointer;
 }
 
 .calendar-cell:hover {
-  stroke: rgba(255, 255, 255, 0.5);
-  transform: scale(1.15);
-  transform-origin: center;
+  stroke: #ffffff;
+  stroke-width: 1.5px;
+  opacity: 1 !important;
 }
 
 /* Color Levels: Cyan-Purple space theme gradient levels */
@@ -140,14 +140,26 @@
 .legend-box.level-3 { background-color: rgba(168, 85, 247, 0.75); }
 .legend-box.level-4 { background-color: #a855f7; }
 
+.calendar-tooltip-bar {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+
 .calendar-tooltip {
   background: var(--bg-deep);
   border: 1px solid var(--border-color);
-  padding: 8px 12px;
+  padding: 6px 14px;
   border-radius: 6px;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: var(--text-main);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  align-self: flex-start;
   pointer-events: none;
+}
+
+.tooltip-placeholder {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  font-style: italic;
 }

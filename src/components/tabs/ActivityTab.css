@@ -1,0 +1,250 @@
+.activity-tab-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.activity-insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.insight-card {
+  padding: 20px;
+  background: rgba(18, 24, 38, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.insight-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.insight-icon.blue { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+.insight-icon.green { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+.insight-icon.purple { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
+
+.insight-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.insight-lbl {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.05em;
+}
+
+.insight-val {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+/* Intensity Legend Row */
+.intensity-legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  background: rgba(18, 24, 38, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  flex-wrap: wrap;
+}
+
+.legend-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.intensity-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+.intensity-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.intensity-dot.low-dot {
+  background: linear-gradient(135deg, #22d3ee, #14b8a6);
+  box-shadow: 0 0 6px rgba(20, 184, 166, 0.4);
+}
+
+.intensity-dot.med-dot {
+  background: linear-gradient(135deg, #818cf8, #3b82f6);
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);
+}
+
+.intensity-dot.high-dot {
+  background: linear-gradient(135deg, #f472b6, #a855f7);
+  box-shadow: 0 0 6px rgba(168, 85, 247, 0.4);
+}
+
+/* Graph Panels */
+.activity-graph-panel {
+  padding: 24px;
+  background: rgba(18, 24, 38, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ====== Hourly Chart ====== */
+.hourly-bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 220px;
+  padding-top: 8px;
+  overflow-x: auto;
+}
+
+.hourly-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 16px;
+  height: 100%;
+}
+
+.hourly-track {
+  width: 100%;
+  max-width: 18px;
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 5px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.hourly-fill {
+  width: 100%;
+  border-radius: 5px;
+  transition: height 0.5s cubic-bezier(.34,1.56,.64,1);
+}
+
+.hourly-axis-label {
+  font-size: 0.68rem;
+  color: #64748b;
+  height: 16px;
+  white-space: nowrap;
+}
+
+/* Time Legend */
+.graph-time-legend {
+  display: flex;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  padding-top: 8px;
+}
+
+.legend-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-chip.night { color: #c084fc; }
+.legend-chip.day { color: #60a5fa; }
+
+/* ====== Weekly Chart ====== */
+.weekly-bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  height: 220px;
+  padding-top: 8px;
+}
+
+.weekly-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  height: 100%;
+}
+
+.weekly-track {
+  width: 36px;
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.weekly-fill {
+  width: 100%;
+  border-radius: 8px;
+  transition: height 0.5s cubic-bezier(.34,1.56,.64,1);
+}
+
+.weekly-day-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+/* ====== Mobile ====== */
+@media (max-width: 640px) {
+  .hourly-bar-chart {
+    height: 160px;
+    gap: 3px;
+  }
+
+  .hourly-track {
+    max-width: 12px;
+  }
+
+  .weekly-bar-chart {
+    height: 160px;
+    gap: 8px;
+  }
+
+  .weekly-track {
+    width: 28px;
+  }
+
+  .weekly-day-name {
+    font-size: 0.75rem;
+  }
+
+  .intensity-legend {
+    gap: 10px;
+  }
+}

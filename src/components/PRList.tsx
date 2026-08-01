@@ -13,7 +13,7 @@ export const PRList: React.FC<PRListProps> = ({ prs }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<FilterState>('all');
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8;
+  const itemsPerPage = 15;
 
   // Filter PRs based on search and status tabs
   const filteredPRs = useMemo(() => {

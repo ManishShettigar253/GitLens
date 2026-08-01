@@ -1,0 +1,267 @@
+.repositories-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.kpi-value.red-text { color: #f87171; }
+
+.repo-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  background: rgba(18, 24, 38, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+.repo-search-bar .search-icon {
+  position: static !important;
+  transform: none !important;
+  flex-shrink: 0;
+  color: #64748b;
+}
+
+.repo-search-input {
+  flex: 1;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  color: #f8fafc;
+  font-size: 0.92rem;
+  width: 100%;
+  outline: none;
+}
+
+.repos-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.repo-detail-card {
+  padding: 24px;
+  background: rgba(18, 24, 38, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.repo-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.repo-name-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.repo-icon {
+  color: #38bdf8;
+}
+
+.repo-title-link {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #60a5fa;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.repo-title-link:hover {
+  text-decoration: underline;
+}
+
+.link-icon {
+  opacity: 0.7;
+}
+
+.visibility-badge {
+  background: rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.lang-tag {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.repo-meta-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.star-count {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #eab308;
+}
+
+.repo-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.rm-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rm-lbl {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.04em;
+}
+
+.rm-val {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.rm-val.green-txt { color: #34d399; }
+.rm-val.red-txt { color: #f87171; }
+
+.rm-sub {
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+.rate-circle-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #34d399;
+}
+
+.churn-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.churn-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.05em;
+}
+
+.churn-bar {
+  display: flex;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.churn-fill-added {
+  background: #10b981;
+  height: 100%;
+}
+
+.churn-fill-removed {
+  background: #ef4444;
+  height: 100%;
+}
+
+.churn-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+}
+
+.repo-recent-prs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.recent-prs-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.05em;
+}
+
+.mini-prs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mini-pr-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+}
+
+.mini-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.mini-status-dot.merged { background: #3b82f6; }
+.mini-status-dot.open { background: #10b981; }
+.mini-status-dot.closed { background: #64748b; }
+
+.mini-pr-title {
+  color: #cbd5e1;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mini-pr-title:hover {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+.mini-pr-date {
+  margin-left: auto;
+  font-size: 0.78rem;
+  color: #64748b;
+  flex-shrink: 0;
+}

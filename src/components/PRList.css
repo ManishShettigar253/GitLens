@@ -28,6 +28,8 @@
 
 .search-bar {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .input-search-icon {
@@ -36,13 +38,17 @@
   top: 50%;
   transform: translateY(-50%);
   color: var(--text-dim);
+  pointer-events: none;
+  z-index: 2;
+  flex-shrink: 0;
 }
 
 .list-search-input {
+  box-sizing: border-box;
   background: rgba(3, 7, 18, 0.4);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 8px 12px 8px 34px;
+  padding: 8px 12px 8px 38px;
   color: var(--text-main);
   font-size: 0.85rem;
   outline: none;
