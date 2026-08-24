@@ -72,8 +72,10 @@ export const MonthlyPerformanceTab: React.FC<MonthlyPerformanceTabProps> = ({
       
       if (map[key]) {
         const m = map[key];
-        m.prsOpened += 1;
-        if (pr.state === 'merged') m.prsMerged += 1;
+        if (!pr.is_direct_commit) {
+          m.prsOpened += 1;
+          if (pr.state === 'merged') m.prsMerged += 1;
+        }
         m.commits += pr.commits_count;
         m.reviews += pr.reviews_count;
         m.comments += pr.comments_count;
