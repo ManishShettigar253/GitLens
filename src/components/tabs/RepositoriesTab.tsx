@@ -51,14 +51,16 @@ export const RepositoriesTab: React.FC<RepositoriesTabProps> = ({ prs }) => {
       }
 
       const r = map[key];
-      r.totalPrs += 1;
-      if (pr.state === 'merged') r.mergedPrs += 1;
-      else if (pr.state === 'open') r.openPrs += 1;
-      else if (pr.state === 'closed') r.closedPrs += 1;
+      if (!pr.is_direct_commit) {
+        r.totalPrs += 1;
+        if (pr.state === 'merged') r.mergedPrs += 1;
+        else if (pr.state === 'open') r.openPrs += 1;
+        else if (pr.state === 'closed') r.closedPrs += 1;
+        r.recentPrs.push(pr);
+      }
 
       r.additions += pr.additions;
       r.deletions += pr.deletions;
-      r.recentPrs.push(pr);
 
       // Keep latest date
       if (new Date(pr.created_at) > new Date(r.lastPrDate)) {
@@ -80,8 +82,9 @@ export const RepositoriesTab: React.FC<RepositoriesTabProps> = ({ prs }) => {
 
   // Overall aggregate stats
   const totalReposCount = repoData.length;
-  const totalPrsCount = prs.length;
-  const totalMergedCount = prs.filter((p) => p.state === 'merged').length;
+  const realPrs = prs.filter(p => !p.is_direct_commit);
+  const totalPrsCount = realPrs.length;
+  const totalMergedCount = realPrs.filter((p) => p.state === 'merged').length;
   const overallMergeRate = totalPrsCount > 0 ? Math.round((totalMergedCount / totalPrsCount) * 100) : 0;
   const totalAdditions = prs.reduce((acc, p) => acc + p.additions, 0);
   const totalDeletions = prs.reduce((acc, p) => acc + p.deletions, 0);

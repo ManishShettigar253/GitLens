@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  gitlens:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gitlens-app
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    # Optional: If you want to use env variables, uncomment below
+    # environment:
+    #   - VITE_API_URL=https://api.example.com

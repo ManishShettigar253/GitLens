@@ -346,7 +346,7 @@ function App() {
           onTabChange={setActiveTab}
           onSignOut={() => handleSearch('')}
           onOpenSettings={() => setIsSettingsOpen(true)}
-          totalPrsCount={filteredPrs.length}
+          totalPrsCount={filteredPrs.filter(p => !p.is_direct_commit).length}
           totalReposCount={uniqueReposCount}
         />
 

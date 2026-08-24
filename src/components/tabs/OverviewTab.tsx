@@ -25,10 +25,11 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
   startDate,
   endDate,
 }) => {
-  const totalPrs = prs.length;
-  const mergedPrs = prs.filter((p) => p.state === 'merged').length;
-  const openPrs = prs.filter((p) => p.state === 'open').length;
-  const closedPrs = prs.filter((p) => p.state === 'closed').length;
+  const realPrs = prs.filter(p => !p.is_direct_commit);
+  const totalPrs = realPrs.length;
+  const mergedPrs = realPrs.filter((p) => p.state === 'merged').length;
+  const openPrs = realPrs.filter((p) => p.state === 'open').length;
+  const closedPrs = realPrs.filter((p) => p.state === 'closed').length;
 
   const mergeRate = totalPrs > 0 ? Math.round((mergedPrs / totalPrs) * 100) : 0;
 

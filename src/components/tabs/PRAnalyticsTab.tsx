@@ -7,7 +7,8 @@ interface PRAnalyticsTabProps {
   prs: PullRequest[];
 }
 
-export const PRAnalyticsTab: React.FC<PRAnalyticsTabProps> = ({ prs }) => {
+export const PRAnalyticsTab: React.FC<PRAnalyticsTabProps> = ({ prs: incomingPrs }) => {
+  const prs = incomingPrs.filter(p => !p.is_direct_commit);
   const totalPrs = prs.length;
   const mergedPrs = prs.filter((p) => p.state === 'merged').length;
   const openPrs = prs.filter((p) => p.state === 'open').length;
