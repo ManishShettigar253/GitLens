@@ -76,14 +76,14 @@ export const LanguagesTab: React.FC<LanguagesTabProps> = ({ prs }) => {
       {/* Header */}
       <div className="tab-header">
         <h2 className="tab-title">Language Analytics</h2>
-        <p className="tab-subtitle">Languages you actually wrote code in — based on lines changed across your PRs</p>
+        <p className="tab-subtitle">Languages you actually wrote code in — based on lines changed across your contributions</p>
       </div>
 
       {/* Sub-stats Banner matching reference image #4 */}
       <div className="lang-sub-banner glass-panel">
         <div className="sub-stat">
           <GitPullRequest size={16} className="sub-icon" />
-          <span><strong>{prs.length}</strong> PRs analysed</span>
+          <span><strong>{prs.length}</strong> contributions analysed</span>
         </div>
         <div className="sub-stat-divider">|</div>
         <div className="sub-stat">
@@ -196,7 +196,7 @@ export const LanguagesTab: React.FC<LanguagesTabProps> = ({ prs }) => {
               <div className="all-lang-info">
                 <span className="lang-dot" style={{ backgroundColor: lang.color }}></span>
                 <span className="all-lang-name">{lang.name}</span>
-                <span className="all-lang-lines">{lang.lines.toLocaleString()} lines ({lang.prCount} PRs)</span>
+                <span className="all-lang-lines">{lang.lines.toLocaleString()} lines ({lang.prCount} contributions)</span>
               </div>
               <div className="all-lang-track">
                 <div
