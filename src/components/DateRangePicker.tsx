@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calendar, Check } from 'lucide-react';
 import './DateRangePicker.css';
 
@@ -33,6 +33,22 @@ export const DateRangePicker: React.FC<DateRangePickerProps> = ({
     { id: 'custom', label: 'Custom' },
   ];
 
+  // Local state for custom dates to prevent immediate re-renders
+  const [localStart, setLocalStart] = useState(startDateStr);
+  const [localEnd, setLocalEnd] = useState(endDateStr);
+
+  // Sync local state when props change (e.g. preset clicked)
+  useEffect(() => {
+    setLocalStart(startDateStr);
+    setLocalEnd(endDateStr);
+  }, [startDateStr, endDateStr]);
+
+  const handleApply = () => {
+    onStartDateChange(localStart);
+    onEndDateChange(localEnd);
+    onApplyCustom();
+  };
+
   return (
     <div className="date-picker-bar glass-panel">
       <div className="date-picker-header">
@@ -46,7 +62,9 @@ export const DateRangePicker: React.FC<DateRangePickerProps> = ({
           {presets.map((preset) => (
             <button
               key={preset.id}
-              onClick={() => onPresetChange(preset.id)}
+              onClick={() => {
+                onPresetChange(preset.id);
+              }}
               className={`preset-chip ${activePreset === preset.id ? 'active' : ''}`}
             >
               {preset.label}
@@ -60,8 +78,8 @@ export const DateRangePicker: React.FC<DateRangePickerProps> = ({
             <label>From</label>
             <input
               type="date"
-              value={startDateStr}
-              onChange={(e) => onStartDateChange(e.target.value)}
+              value={localStart}
+              onChange={(e) => setLocalStart(e.target.value)}
               className="date-input"
             />
           </div>
@@ -69,12 +87,12 @@ export const DateRangePicker: React.FC<DateRangePickerProps> = ({
             <label>To</label>
             <input
               type="date"
-              value={endDateStr}
-              onChange={(e) => onEndDateChange(e.target.value)}
+              value={localEnd}
+              onChange={(e) => setLocalEnd(e.target.value)}
               className="date-input"
             />
           </div>
-          <button onClick={onApplyCustom} className="apply-btn">
+          <button onClick={handleApply} className="apply-btn">
             <Check size={14} /> Apply
           </button>
         </div>
