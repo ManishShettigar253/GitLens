@@ -38,7 +38,9 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
   // Primary language
   const languageCounts: Record<string, number> = {};
   prs.forEach((p) => {
-    languageCounts[p.primary_language] = (languageCounts[p.primary_language] || 0) + 1;
+    const lang = p.primary_language || 'Other';
+    const lines = p.additions + p.deletions;
+    languageCounts[lang] = (languageCounts[lang] || 0) + lines;
   });
   const topLanguage = Object.entries(languageCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || 'TypeScript';
 
